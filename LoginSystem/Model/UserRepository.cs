@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LoginSystem.Model
 {
-    internal class UserRepository
+    public class UserRepository
     {
         private string _connectionString;
         public UserRepository(string connectionString)

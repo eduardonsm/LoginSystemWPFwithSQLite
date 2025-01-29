@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 using System.IO;
 
-class DatabaseSetup
+public class DatabaseSetup
 {
     public string? ConnectionString { get; private set; }
 
