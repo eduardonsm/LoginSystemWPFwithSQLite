@@ -4,9 +4,7 @@ using System.IO;
 
 class DatabaseSetup
 {
-    private string connectionString;
-
-    public string ConnectionString { get => connectionString;}
+    public string? ConnectionString { get; private set; }
 
     public string CreateDatabase()
     {
@@ -21,12 +19,12 @@ class DatabaseSetup
         }
 
         string dbPath = Path.Combine(dbDirectory, "LoginSystem.db");
-        connectionString = $"Data Source={dbPath}";
+        ConnectionString = $"Data Source={dbPath}";
 
 
         try
         {
-            using (var connection = new SQLiteConnection(connectionString))
+            using (var connection = new SQLiteConnection(ConnectionString))
             {
                 connection.Open();
 

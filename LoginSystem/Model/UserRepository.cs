@@ -35,9 +35,8 @@ namespace LoginSystem.Model
                 }
             }
         }
-        public void DelUser(User user)
+        public void DelUser(int userId)
         {
-            int userId = user.Id;
             string query = "DELETE FROM users WHERE id = @Id";
 
             using (var connection = new SQLiteConnection(_connectionString))

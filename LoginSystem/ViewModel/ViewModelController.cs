@@ -11,7 +11,14 @@ namespace LoginSystem.ViewModel
     {
         public void AddUser(int id, string username, string email, string password, string role, DateTime createdAt)
         {
-            User newUser = new User(id, username, email, password, role, createdAt);
+            User user = new()
+            {
+                Username = "testuser",
+                Password = "password123",
+                Email = "test@example.com",
+                Role = "user",
+                CreatedAt = DateTime.Now
+            };
             //query add
         }
     }
