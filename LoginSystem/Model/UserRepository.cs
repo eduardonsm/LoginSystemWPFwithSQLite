@@ -63,7 +63,27 @@ namespace LoginSystem.Model
                     command.ExecuteNonQuery();
                 }
             }
+        }public bool AuthenticateUser(string username, string password)
+        {
+            string query = "SELECT password FROM users WHERE username = @Username";
+
+            using (var connection = new SQLiteConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    var result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string storedPass = result.ToString();
+                        return password == storedPass;
+                    }
+                }
+            }
+            return false;
         }
+        //fazer o metodo getUser
 
 
     }
